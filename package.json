@@ -1,0 +1,19 @@
+{
+  "name": "grid-system",
+  "version": "1.0.0",
+  "description": "grid system",
+  "main": "index.js",
+  "repository": "https://github.com/theanh226/gridSystem.git",
+  "author": "The Anh Tran <theanh0226@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn ts-node index.ts",
+    "build": "yarn tsc index.ts"
+  },
+  "dependencies": {
+    "typescript": "^4.6.4"
+  },
+  "devDependencies": {
+    "ts-node": "^10.7.0"
+  }
+}
