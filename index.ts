@@ -13,26 +13,6 @@ interface configForGridSystem {
   viewPorts: Array<viewPort>;
 }
 
-// const configForGridSystemCustom = {
-//   width: 100,
-//   maxWidth: 1366,
-//   totalColumns: 60,
-//   defaultColumnsPerArea: [5, 23, 4, 23, 5],
-//   largeViewportColumnsPerArea: [1, 1, 1, 1, 1],
-//   viewPorts: [
-//     {
-//       minWidth: 786,
-//       maxWidth: 991,
-//       columnsPerArea: [2, 2, 2, 2, 2],
-//     },
-//     {
-//       minWidth: 992,
-//       maxWidth: 1024,
-//       columnsPerArea: [3, 3, 3, 3, 3],
-//     },
-//   ],
-// };
-
 const buildGridSystem = (
   width: number = 100,
   totalColumns: number,
@@ -47,6 +27,7 @@ const buildGridSystem = (
   // check if columns per area equal to total columns
   if (columnsPerArea.reduce((acc, curr) => acc + curr, 0) !== totalColumns) {
     console.warn("Columns per area should be equal to total columns");
+    return "";
   }
   columnsPerArea.forEach((element) => {
     gridSystem = gridSystem.concat(
@@ -77,7 +58,7 @@ export const getGridSystem = (
   });
   if (screenWidth > maxWidth) {
     console.log("large viewport");
-    return buildGridSystem(width, totalColumns, largeViewportColumnsPerArea);
+    return buildGridSystem(maxWidth, totalColumns, largeViewportColumnsPerArea);
   } else if (viewPortInRange) {
     console.log("viewPortInRange");
     viewPorts.forEach((viewPort) => {
