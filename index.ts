@@ -33,7 +33,6 @@ const buildGridSystem = (
       `calc(${width}/${totalColumns} * ${element}) `
     );
   });
-  console.log(gridSystem);
   return gridSystem;
 };
 
@@ -60,12 +59,15 @@ export const getGridSystem = (
     console.log("large viewport");
     return buildGridSystem(maxWidth, totalColumns, largeViewportColumnsPerArea);
   } else if (viewPortInRange) {
+    let column: Array<number> = [];
     console.log("viewPortInRange");
     viewPorts.forEach((viewPort) => {
       if (screenWidth >= viewPort.minWidth && screenWidth < viewPort.maxWidth) {
-        return buildGridSystem(width, totalColumns, viewPort.columnsPerArea);
+        // return buildGridSystem(width, totalColumns, viewPort.columnsPerArea);
+        column = viewPort.columnsPerArea;
       }
     });
+    return buildGridSystem(width, totalColumns, column);
   } else {
     console.log("default");
     return buildGridSystem(width, totalColumns, defaultColumnsPerArea);
