@@ -56,12 +56,10 @@ export const getGridSystem = (
     }
   });
   if (screenWidth > parseInt(maxWidth)) {
-    console.log("large viewport");
     return buildGridSystem(maxWidth, totalColumns, largeViewportColumnsPerArea);
   } else if (columnViewPortInRange.length !== 0) {
     return buildGridSystem(width, totalColumns, columnViewPortInRange);
   } else {
-    console.log("default");
     return buildGridSystem(width, totalColumns, defaultColumnsPerArea);
   }
 };

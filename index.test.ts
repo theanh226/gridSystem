@@ -20,7 +20,7 @@ const configForGridSystemCustom = {
     {
       minWidth: 992,
       maxWidth: 0,
-      columnsPerArea: [3, 3, 3, 3, 3],
+      columnsPerArea: [3, 2, 3, 3, 3],
     },
   ],
 };
