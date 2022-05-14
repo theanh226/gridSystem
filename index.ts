@@ -48,26 +48,18 @@ export const getGridSystem = (
     totalColumns,
     viewPorts,
   } = config;
-  let viewPortInRange;
-  // check viewport in range
+  let columnViewPortInRange: Array<number> = [];
+  // find viewport columns in range depending on screen width
   viewPorts.forEach((viewPort) => {
     if (screenWidth >= viewPort.minWidth && screenWidth < viewPort.maxWidth) {
-      viewPortInRange = true;
+      columnViewPortInRange = viewPort.columnsPerArea;
     }
   });
   if (screenWidth > parseInt(maxWidth)) {
     console.log("large viewport");
     return buildGridSystem(maxWidth, totalColumns, largeViewportColumnsPerArea);
-  } else if (viewPortInRange) {
-    let column: Array<number> = [];
-    console.log("viewPortInRange");
-    viewPorts.forEach((viewPort) => {
-      if (screenWidth >= viewPort.minWidth && screenWidth < viewPort.maxWidth) {
-        // return buildGridSystem(width, totalColumns, viewPort.columnsPerArea);
-        column = viewPort.columnsPerArea;
-      }
-    });
-    return buildGridSystem(width, totalColumns, column);
+  } else if (columnViewPortInRange.length !== 0) {
+    return buildGridSystem(width, totalColumns, columnViewPortInRange);
   } else {
     console.log("default");
     return buildGridSystem(width, totalColumns, defaultColumnsPerArea);
