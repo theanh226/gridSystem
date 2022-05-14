@@ -8,12 +8,16 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn ts-node index.ts",
-    "build": "yarn tsc index.ts"
+    "build": "yarn tsc index.ts",
+    "test": "jest"
   },
   "dependencies": {
     "typescript": "^4.6.4"
   },
   "devDependencies": {
+    "@types/jest": "^27.5.1",
+    "jest": "^28.1.0",
+    "ts-jest": "^28.0.2",
     "ts-node": "^10.7.0"
   }
 }
