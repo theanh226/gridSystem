@@ -5,8 +5,8 @@ interface viewPort {
 }
 
 interface configForGridSystem {
-  width: number;
-  maxWidth: number;
+  width: string;
+  maxWidth: string;
   totalColumns: number;
   defaultColumnsPerArea: Array<number>;
   largeViewportColumnsPerArea: Array<number>;
@@ -14,7 +14,7 @@ interface configForGridSystem {
 }
 
 const buildGridSystem = (
-  width: number = 100,
+  width: string = "100vw",
   totalColumns: number,
   columnsPerArea: Array<number>
 ): string => {
@@ -27,13 +27,13 @@ const buildGridSystem = (
   // check if columns per area equal to total columns
   if (columnsPerArea.reduce((acc, curr) => acc + curr, 0) !== totalColumns) {
     console.warn("Columns per area should be equal to total columns");
-    return "";
   }
   columnsPerArea.forEach((element) => {
     gridSystem = gridSystem.concat(
-      `calc(${width}vw/${totalColumns} * ${element}) `
+      `calc(${width}/${totalColumns} * ${element}) `
     );
   });
+  console.log(gridSystem);
   return gridSystem;
 };
 
@@ -56,7 +56,7 @@ export const getGridSystem = (
       viewPortInRange = true;
     }
   });
-  if (screenWidth > maxWidth) {
+  if (screenWidth > parseInt(maxWidth)) {
     console.log("large viewport");
     return buildGridSystem(maxWidth, totalColumns, largeViewportColumnsPerArea);
   } else if (viewPortInRange) {
