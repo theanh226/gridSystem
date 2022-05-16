@@ -27,10 +27,10 @@ const configForGridSystemCustom = {
 
 // Test for custom grid system
 const expectedValue = {
-  largeViewportColumnsPerArea: `calc(1366px/60 * 1) calc(1366px/60 * 1) calc(1366px/60 * 1) calc(1366px/60 * 1) calc(1366px/60 * 1) `,
-  defaultColumnsPerArea: `calc(100vw/60 * 5) calc(100vw/60 * 23) calc(100vw/60 * 4) calc(100vw/60 * 23) calc(100vw/60 * 5) `,
-  ipadColumnsPerArea: `calc(100vw/60 * 2) calc(100vw/60 * 2) calc(100vw/60 * 2) calc(100vw/60 * 2) calc(100vw/60 * 2) `,
-  smallDesktopColumnsPerArea: `calc(100vw/60 * 3) calc(100vw/60 * 3) calc(100vw/60 * 3) calc(100vw/60 * 3) calc(100vw/60 * 3) `,
+  largeViewportColumnsPerArea: `calc(1366px/60 * 1) calc(1366px/60 * 1) calc(1366px/60 * 1) calc(1366px/60 * 1) calc(1366px/60 * 1)`,
+  defaultColumnsPerArea: `calc(100vw/60 * 5) calc(100vw/60 * 23) calc(100vw/60 * 4) calc(100vw/60 * 23) calc(100vw/60 * 5)`,
+  ipadColumnsPerArea: `calc(100vw/60 * 2) calc(100vw/60 * 2) calc(100vw/60 * 2) calc(100vw/60 * 2) calc(100vw/60 * 2)`,
+  smallDesktopColumnsPerArea: `calc(100vw/60 * 3) calc(100vw/60 * 3) calc(100vw/60 * 3) calc(100vw/60 * 3) calc(100vw/60 * 3)`,
 };
 
 describe("getGridSystem", () => {

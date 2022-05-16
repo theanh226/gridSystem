@@ -33,7 +33,8 @@ const buildGridSystem = (
       `calc(${width}/${totalColumns} * ${element}) `
     );
   });
-  return gridSystem;
+
+  return gridSystem.trim();
 };
 
 export const getGridSystem = (
